@@ -19,6 +19,7 @@ public class TaskManager : MonoBehaviour
         }
 
         Instance = this;
+        FindAllTasks();
     }
 
     private void Start()
@@ -26,6 +27,7 @@ public class TaskManager : MonoBehaviour
         // TESTING PURPOSES
         ActivateTask(allTasks[0]);
     }
+
     public void RegisterTask(Task task)
     {
         if (!allTasks.Contains(task))
@@ -39,10 +41,11 @@ public class TaskManager : MonoBehaviour
         if (activeTasks.Contains(task))
             return;
 
-
         task.Activate();
 
         activeTasks.Add(task);
+
+        TaskUIManager.Instance.AddTask(task);
     }
 
     public void DeactivateTask(Task task)
@@ -55,6 +58,16 @@ public class TaskManager : MonoBehaviour
 
         activeTasks.Remove(task);
     }
+
+    private void FindAllTasks()
+{
+    Task[] tasks = FindObjectsByType<Task>();
+
+    foreach(Task task in tasks)
+    {
+        RegisterTask(task);
+    }
+}
 
     public void TaskCompleted(Task task)
     {

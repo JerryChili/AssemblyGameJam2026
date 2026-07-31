@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 
 public abstract class Task : MonoBehaviour
 {
+    public event Action<Task> OnTaskUpdated;
+
     [Header("Task Information")]
     public TaskType taskType;
     public string taskName;
 
     [Header("Task Progress")]
     [SerializeField] protected int requiredAmount = 1;
+    
 
     protected int currentProgress;
 
@@ -19,7 +23,7 @@ public abstract class Task : MonoBehaviour
 
     protected virtual void Awake()
     {
-        TaskManager.Instance.RegisterTask(this);
+        
     }
 
     public virtual void Activate()
@@ -27,14 +31,14 @@ public abstract class Task : MonoBehaviour
         IsActive = true;
         currentProgress = 0;
 
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
 
         Debug.Log($"{taskName} activated");
     }
 
     public virtual void Deactivate()
     {
-        IsActive = false;
+        //IsActive = false;
 
         gameObject.SetActive(false);
     }
@@ -54,10 +58,7 @@ public abstract class Task : MonoBehaviour
 
         currentProgress += amount;
 
-        Debug.Log(
-            $"{taskName}: {currentProgress}/{requiredAmount}"
-        );
-
+        OnTaskUpdated?.Invoke(this);
 
         if (IsComplete)
         {
