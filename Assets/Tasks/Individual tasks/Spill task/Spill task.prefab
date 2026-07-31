@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &678336341560406851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3094383975647147125}
+  - component: {fileID: 418387051783858975}
+  m_Layer: 0
+  m_Name: Spill task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3094383975647147125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678336341560406851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3440658427232772386}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418387051783858975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678336341560406851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e517fbb214427a74f95b1ceea08b356b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpillTask
+  taskType: 0
+  taskName: 
+  requiredAmount: 1
+--- !u!1001 &5082857015042151362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3094383975647147125}
+    m_Modifications:
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.57025003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.10819
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27419996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614981899551227059, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_Name
+      value: Spill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614981899551227059, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7614981899551227059, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8306106517844799773}
+  m_SourcePrefab: {fileID: 100100000, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+--- !u!1 &3396899630883483505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7614981899551227059, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+  m_PrefabInstance: {fileID: 5082857015042151362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8306106517844799773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396899630883483505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b57e40052162e4cba50a5687ab8e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+--- !u!4 &3440658427232772386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7581320803234968288, guid: 4ac5c92cd53ac574b9f5aa715342fb61, type: 3}
+  m_PrefabInstance: {fileID: 5082857015042151362}
+  m_PrefabAsset: {fileID: 0}

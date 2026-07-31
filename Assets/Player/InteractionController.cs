@@ -9,6 +9,11 @@ public class InteractionController : MonoBehaviour
 
     private Interactable currentInteractable;
 
+    public Transform handSocket;
+    private HeldItem heldItem;
+
+    public float throwForce = 8f;
+
     private void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
@@ -24,6 +29,19 @@ public class InteractionController : MonoBehaviour
                 currentInteractable.Interact();
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (heldItem != null)
+            {
+                heldItem.Use();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DropItem();
+        }
     }
 
     void CheckForInteractable()
@@ -37,13 +55,58 @@ public class InteractionController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, interactableLayer))
         {
-            Debug.Log("Hit: " + hit.collider.name);
+            //Debug.Log("Hit: " + hit.collider.name);
             currentInteractable = hit.collider.GetComponent<Interactable>();
 
             if (currentInteractable != null)
             {
-                Debug.Log(currentInteractable.GetPrompt());
+                //Debug.Log(currentInteractable.GetPrompt());
             }
         }
+    }
+    
+    public bool HasItem()
+    {
+        return heldItem != null;
+    }
+
+    public void PickupItem(PickupItem item)
+    {
+        heldItem = Instantiate(
+            item.GetHeldItem(),
+            handSocket
+        );
+
+        heldItem.transform.localPosition = Vector3.zero;
+        heldItem.transform.localRotation = Quaternion.identity;
+
+        item.RemoveFromWorld();
+    }
+
+
+    public void DropItem()
+    {
+        if (heldItem == null)
+            return;
+
+        GameObject droppedObject = Instantiate(
+            heldItem.worldItemPrefab,
+            handSocket.position,
+            handSocket.rotation
+        );
+
+        Rigidbody rb = droppedObject.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.AddForce(
+                handSocket.forward * throwForce,
+                ForceMode.Impulse
+            );
+        }
+
+        Destroy(heldItem.gameObject);
+
+        heldItem = null;
     }
 }
