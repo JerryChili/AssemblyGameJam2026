@@ -80,27 +80,6 @@ public class QuotaManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.buildIndex == 1)
-        {
-            TaskManager.Instance.RefreshTasks();
-            StartQuota();
-        }
-    }
-
     public void StartQuota()
     {
         if (quotaRunning)

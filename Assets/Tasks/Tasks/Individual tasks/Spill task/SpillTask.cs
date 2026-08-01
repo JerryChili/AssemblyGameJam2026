@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SpillTask : Task
 {
@@ -18,9 +19,16 @@ public class SpillTask : Task
     {
         base.Activate();
 
-        mopGameObject = GameObject.Find("Mop");
-        mop = mopGameObject.GetComponent<PickupItem>();
-        mop.SetTaskHighlight(true);
+        try
+        {
+            mopGameObject = GameObject.Find("Mop");
+            mop = mopGameObject.GetComponent<PickupItem>();
+            mop.SetTaskHighlight(true);
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Couldnt find mop");
+        }
 
         //mop.SetTaskHighlight(true);
         ActivateRandomSpills();
@@ -37,7 +45,7 @@ public class SpillTask : Task
         activeSpills.Clear();
 
 
-        int amount = Random.Range(
+        int amount = UnityEngine.Random.Range(
             minimumSpills,
             maximumSpills + 1
         );
@@ -51,7 +59,7 @@ public class SpillTask : Task
         {
             Spill temp = shuffled[i];
 
-            int randomIndex = Random.Range(i, shuffled.Count);
+            int randomIndex = UnityEngine.Random.Range(i, shuffled.Count);
 
             shuffled[i] = shuffled[randomIndex];
             shuffled[randomIndex] = temp;

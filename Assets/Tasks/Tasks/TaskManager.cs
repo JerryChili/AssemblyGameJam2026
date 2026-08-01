@@ -20,11 +20,12 @@ public class TaskManager : MonoBehaviour
         }
 
         Instance = this;
-        FindAllTasks();
     }
+
 
     private void Start()
     {
+        FindAllTasks();
     }
 
     public void RegisterTask(Task task)

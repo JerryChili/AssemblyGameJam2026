@@ -1117,11 +1117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206874704548787417, guid: 81f260580b5fde747bb8b3c8648ca8c9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 336.69
+      value: 446.1784
       objectReference: {fileID: 0}
     - target: {fileID: 5206874704548787417, guid: 81f260580b5fde747bb8b3c8648ca8c9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 38.4908
+      value: 43.491
       objectReference: {fileID: 0}
     - target: {fileID: 5206874704548787417, guid: 81f260580b5fde747bb8b3c8648ca8c9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3660,6 +3660,10 @@ PrefabInstance:
       propertyPath: minimumSpills
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 418387051783858975, guid: 5d1362cec47e56e4d821dae39fca5494, type: 3}
+      propertyPath: mopGameObject
+      value: 
+      objectReference: {fileID: 1925202039}
     - target: {fileID: 418387051783858975, guid: 5d1362cec47e56e4d821dae39fca5494, type: 3}
       propertyPath: spills.Array.size
       value: 28
