@@ -12,8 +12,9 @@ public class CoffeeMachine : Interactable
     private bool brewing;
     private bool ready;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         machineAudio = GetComponent<AudioSource>();
     }
 

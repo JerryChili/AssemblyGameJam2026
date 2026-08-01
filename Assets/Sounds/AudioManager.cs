@@ -5,12 +5,16 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioClip itemPickup;
+    public AudioClip officeHum;
 
     [Header("Audio Sources")]
     public AudioSource sfxSource;
     public AudioSource ambienceSource;
 
-
+    private void Start()
+    {
+        PlayAmbience(officeHum);
+    }
 
     private void Awake()
     {

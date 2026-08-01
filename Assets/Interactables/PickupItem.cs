@@ -16,7 +16,7 @@ public class PickupItem : Interactable
     {
         player = FindAnyObjectByType<InteractionController>();
 
-        Debug.Log("Interacted with " + gameObject.name);
+        //Debug.Log("Interacted with " + gameObject.name);
         if (player.HasItem())
             return;
 
@@ -34,7 +34,7 @@ public class PickupItem : Interactable
         return worldItemPrefab;
     }
 
-    public void RemoveFromWorld()
+    public virtual void RemoveFromWorld()
     {
         gameObject.SetActive(false);
     }
