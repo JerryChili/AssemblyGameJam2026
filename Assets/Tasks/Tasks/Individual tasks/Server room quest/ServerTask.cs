@@ -18,6 +18,7 @@ public class ServerTask : Task
         base.Activate();
         //Debug.Log("ServerTask activated");
 
+
         requiredAmount = 1;
         serverReset = false;
 
@@ -62,6 +63,7 @@ public class ServerTask : Task
 
     private void KeycardTaken()
     {
+        Debug.Log("Keycard taken");
         desk.SetTaskHighlight(false);
 
         reader.SetTaskHighlight(true);
@@ -71,7 +73,7 @@ public class ServerTask : Task
 
     private void ServerReset()
     {
-        //Debug.Log("Beebbooppb");
+        Debug.Log("Beebbooppb");
         serverReset = true;
 
 
@@ -84,7 +86,7 @@ public class ServerTask : Task
 
     private void KeycardReturned()
     {
-        //Debug.Log("Keycard has been returned");
+        Debug.Log("Keycard has been returned");
         reader.LockDoor();
 
         desk.SetTaskHighlight(false);
