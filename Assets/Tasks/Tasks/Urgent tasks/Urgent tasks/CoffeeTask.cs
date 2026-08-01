@@ -3,12 +3,18 @@ using UnityEngine;
 public class CoffeeTask : UrgentTask
 {
     public BossDoor bossDoor;
+    public CoffeeMachine machine;
 
+    private void Start()
+    {
+        machine = FindAnyObjectByType<CoffeeMachine>();
+    }
 
     public override void Activate()
     {
         base.Activate();
-
+        bossDoor.SetTaskHighlight(true);
+        machine.SetTaskHighlight(true);
 
         if (bossDoor == null)
         {
@@ -26,6 +32,8 @@ public class CoffeeTask : UrgentTask
 
     public void CoffeeDelivered()
     {
+        machine.SetTaskHighlight(false);
+        bossDoor.SetTaskHighlight(false);
         AddProgress();
     }
 }

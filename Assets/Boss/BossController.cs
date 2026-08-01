@@ -79,7 +79,7 @@ public class BossController : MonoBehaviour
     private void PlayerCaught()
     {
         Debug.Log("PLAYER CAUGHT");
-
+        gameObject.SetActive(false);
         GameOverManager.Instance.GameOver();
     }
 

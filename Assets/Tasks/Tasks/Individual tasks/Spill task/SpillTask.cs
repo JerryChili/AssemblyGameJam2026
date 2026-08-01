@@ -8,6 +8,8 @@ public class SpillTask : Task
 
     public int minimumSpills = 2;
     public int maximumSpills = 5;
+    public GameObject mopGameObject;
+    private PickupItem mop;
 
     private List<Spill> activeSpills = new List<Spill>();
 
@@ -16,6 +18,9 @@ public class SpillTask : Task
     {
         base.Activate();
 
+        mopGameObject = GameObject.Find("Mop");
+        mop = mopGameObject.GetComponent<PickupItem>();
+        mop.SetTaskHighlight(true);
 
         //mop.SetTaskHighlight(true);
         ActivateRandomSpills();
@@ -84,6 +89,7 @@ public class SpillTask : Task
 
     private void SpillCleaned()
     {
+        mop.SetTaskHighlight(false);
         AddProgress();
     }
 }
