@@ -30,7 +30,11 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+    public void StopAllSounds()
+    {
+        ambienceSource.Stop();
+        sfxSource.Stop();
+    }
 
     public void PlaySFX(AudioClip clip)
     {

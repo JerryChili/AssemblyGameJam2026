@@ -24,6 +24,8 @@ public class QuotaManager : MonoBehaviour
 
 
     private Quota currentQuota;
+    public int completedQuotas;
+
     private float timer;
 
     public float quotaBreakTime = 5f;
@@ -130,11 +132,16 @@ public class QuotaManager : MonoBehaviour
         UpdateQuotaText();
     }
 
+    public int GetCompletedQuotas()
+    {
+        return completedQuotas;
+    }
 
     private void CompleteQuota()
     {
         Debug.Log("Quota completed!");
 
+        completedQuotas++;
         AudioManager.Instance.PlaySFX(quotaSuccess);
         BossAngerManager.Instance.QuotaCompleted();
         StartCoroutine(NextQuotaDelay());

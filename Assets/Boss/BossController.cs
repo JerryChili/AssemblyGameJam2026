@@ -80,8 +80,7 @@ public class BossController : MonoBehaviour
     {
         Debug.Log("PLAYER CAUGHT");
 
-        // Replace later with:
-        // GameManager.GameOver();
+        GameOverManager.Instance.GameOver();
     }
 
     private void UpdateBossSpeed()
