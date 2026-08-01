@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020265849688491316}
+  - component: {fileID: 3368960073388115188}
+  - component: {fileID: 4957409900300622390}
   - component: {fileID: 2682078920406418547}
   m_Layer: 0
   m_Name: MopHeld
@@ -25,77 +27,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732081085478645789}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.39454406, y: -0.58687913, z: -0.5865926, w: -0.39473677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2740153264925467279}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2682078920406418547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732081085478645789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bee33b7ac723543874c2270ee8b836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MopHeldItem
-  itemName: Mop
-  worldItemPrefab: {fileID: 6053425674383671787, guid: f9c555b8e9acf784f881af8071c6e06f, type: 3}
-  sweepRange: 2
---- !u!1 &4583368028910694034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2740153264925467279}
-  - component: {fileID: 493767425878615724}
-  - component: {fileID: 353355630804747035}
-  m_Layer: 0
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2740153264925467279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4583368028910694034}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06748, y: 1.69514, z: 0.06748}
+  m_LocalScale: {x: 17.130363, y: 52.352848, z: 4.4537425}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4020265849688491316}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &493767425878615724
+--- !u!33 &3368960073388115188
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4583368028910694034}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &353355630804747035
+  m_GameObject: {fileID: 1732081085478645789}
+  m_Mesh: {fileID: 8467973019869391972, guid: 17fadbd56bc96c042a74bcef62f12dcf, type: 3}
+--- !u!23 &4957409900300622390
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4583368028910694034}
+  m_GameObject: {fileID: 1732081085478645789}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -114,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3250de22542856042ba0c6d5b97b2a0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,3 +91,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2682078920406418547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732081085478645789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bee33b7ac723543874c2270ee8b836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MopHeldItem
+  itemName: Mop
+  worldItemPrefab: {fileID: 6053425674383671787, guid: f9c555b8e9acf784f881af8071c6e06f, type: 3}
+  sweepRange: 2
+  playerCamera: {fileID: 0}
