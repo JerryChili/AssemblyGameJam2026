@@ -8,9 +8,9 @@ public class CoffeeHeldItem : HeldItem
 
     public float buffDuration = 30f;
 
-
     private bool consumed;
 
+    public AudioClip drinkSound;
 
     public override void Use()
     {
@@ -35,7 +35,7 @@ public class CoffeeHeldItem : HeldItem
 
 
         Debug.Log("Coffee consumed");
-
+        AudioManager.Instance.PlaySFX(drinkSound);
 
         Destroy(gameObject);
     }

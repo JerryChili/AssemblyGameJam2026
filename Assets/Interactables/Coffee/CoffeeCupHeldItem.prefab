@@ -130,3 +130,4 @@ MonoBehaviour:
   sprintBoost: 1.25
   staminaRecoveryBoost: 1.5
   buffDuration: 30
+  drinkSound: {fileID: 8300000, guid: 832099652c33a26419bb7b32b8c48fc0, type: 3}

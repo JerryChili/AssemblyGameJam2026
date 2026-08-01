@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CoffeeMachine : Interactable
@@ -5,11 +6,16 @@ public class CoffeeMachine : Interactable
     public float brewTime = 10f;
 
     public PickupItem coffeePickup;
+    private AudioSource machineAudio;
 
 
     private bool brewing;
     private bool ready;
 
+    private void Awake()
+    {
+        machineAudio = GetComponent<AudioSource>();
+    }
 
     public override void Interact()
     {
@@ -27,9 +33,13 @@ public class CoffeeMachine : Interactable
     }
 
 
-    private System.Collections.IEnumerator Brew()
+    private IEnumerator Brew()
     {
         brewing = true;
+        if(!machineAudio.isPlaying && machineAudio != null)
+        {
+            machineAudio.Play();
+        }
 
         Debug.Log("Brewing coffee...");
 
@@ -40,6 +50,10 @@ public class CoffeeMachine : Interactable
         brewing = false;
         ready = true;
 
+        if (machineAudio.isPlaying && machineAudio != null)
+        {
+            machineAudio.Stop();
+        }
 
         Debug.Log("Coffee ready!");
     }

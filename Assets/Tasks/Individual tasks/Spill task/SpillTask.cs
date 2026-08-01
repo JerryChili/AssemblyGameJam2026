@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class SpillTask : Task
 {
+    //public PickupItem mop;
     public List<Spill> spills = new List<Spill>();
 
     public int minimumSpills = 2;
@@ -15,6 +16,8 @@ public class SpillTask : Task
     {
         base.Activate();
 
+
+        //mop.SetTaskHighlight(true);
         ActivateRandomSpills();
     }
 

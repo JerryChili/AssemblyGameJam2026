@@ -4,6 +4,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public static TaskManager Instance;
+    public AudioClip completionSound;
 
     [Header("Available Tasks")]
     public List<Task> allTasks = new List<Task>();
@@ -68,19 +69,31 @@ public class TaskManager : MonoBehaviour
     }
 
     private void FindAllTasks()
-{
-    Task[] tasks = FindObjectsByType<Task>();
-
-    foreach(Task task in tasks)
     {
-        RegisterTask(task);
+        Task[] tasks = FindObjectsByType<Task>();
+
+        foreach(Task task in tasks)
+        {
+            RegisterTask(task);
+        }
     }
-}
+
+    public void ClearActiveTasks()
+    {
+        foreach (Task task in new List<Task>(activeTasks))
+        {
+            task.Deactivate();
+        }
+
+        activeTasks.Clear();
+    }
 
     public void TaskCompleted(Task task)
     {
+
         Debug.Log($"Task completed: {task.taskName}");
 
+        AudioManager.Instance.PlaySFX(completionSound);
         activeTasks.Remove(task);
     }
 

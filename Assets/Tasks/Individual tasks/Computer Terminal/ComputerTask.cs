@@ -36,6 +36,7 @@ public class ComputerTask : Task
 
 
         infectedComputer.isInfected = true;
+        infectedComputer.SetTaskHighlight(true);
 
 
         infectedComputer.OnBugFixed -= BugFixed;
@@ -51,6 +52,8 @@ public class ComputerTask : Task
 
     private void BugFixed()
     {
+        infectedComputer.SetTaskHighlight(false);
+
         AddProgress();
 
         infectedComputer.OnBugFixed -= BugFixed;

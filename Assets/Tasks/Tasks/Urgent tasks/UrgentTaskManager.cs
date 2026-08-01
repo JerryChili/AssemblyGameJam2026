@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class UrgentTaskManager : MonoBehaviour
 {
+
     public static UrgentTaskManager Instance;
+
+    public AudioClip spawnSound;
+    public AudioClip completionSound;
 
 
     private List<UrgentTask> availableTasks =
@@ -95,6 +99,7 @@ public class UrgentTaskManager : MonoBehaviour
         Debug.Log(
             $"Urgent task activated: {task.taskName}"
         );
+        AudioManager.Instance.PlaySFX(spawnSound);
     }
 
 
@@ -102,6 +107,8 @@ public class UrgentTaskManager : MonoBehaviour
     public void TaskCompleted(UrgentTask task)
     {
         activeTasks.Remove(task);
+
+        AudioManager.Instance.PlaySFX(completionSound);
 
         UrgentTaskUIManager.Instance.RemoveTask(task);
     }

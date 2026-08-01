@@ -20,6 +20,7 @@ public class PickupItem : Interactable
         if (player.HasItem())
             return;
 
+        AudioManager.Instance.PlayItemPickupSound();
         player.PickupItem(this);
     }
 

@@ -9,6 +9,9 @@ public class QuotaManager : MonoBehaviour
 
     public TMP_Text quotaStatusText;
 
+    public AudioClip newQuota;
+    public AudioClip quotaSuccess;
+    public AudioClip quotaFail;
 
     [Header("Difficulty")]
     public int quotaNumber = 1;
@@ -58,6 +61,7 @@ public class QuotaManager : MonoBehaviour
 
         timer -= Time.deltaTime;
 
+        UpdateQuotaText();
 
         if (timer <= 0)
         {
@@ -76,7 +80,7 @@ public class QuotaManager : MonoBehaviour
     public void StartQuota()
     {
         currentQuota = new Quota();
-
+        AudioManager.Instance.PlaySFX(newQuota);
 
         int amount = Random.Range(
             minimumTasks,
@@ -131,6 +135,8 @@ public class QuotaManager : MonoBehaviour
     {
         Debug.Log("Quota completed!");
 
+        AudioManager.Instance.PlaySFX(quotaSuccess);
+        BossAngerManager.Instance.QuotaCompleted();
         StartCoroutine(NextQuotaDelay());
     }
 
@@ -156,6 +162,7 @@ public class QuotaManager : MonoBehaviour
 
         ClearQuotaUI();
 
+        TaskManager.Instance.ClearActiveTasks();
 
         quotaNumber++;
 
@@ -173,14 +180,16 @@ public class QuotaManager : MonoBehaviour
             $"Quota failed. Missing tasks: {currentQuota.MissingTasks()}"
         );
 
-        // Future:
-        // Boss anger increases based on missing tasks
+        int failedTasks = currentQuota.MissingTasks();
 
-        quotaNumber++;
+        if (failedTasks > 0)
+        {
+            BossAngerManager.Instance.QuotaFailed(failedTasks);
+        }
 
         IncreaseDifficulty();
-
-        StartQuota();
+        AudioManager.Instance.PlaySFX(quotaFail);
+        StartCoroutine(NextQuotaDelay());
     }
 
     private void ClearQuotaUI()
@@ -193,7 +202,7 @@ public class QuotaManager : MonoBehaviour
 
     private void UpdateQuotaText()
     {
-        quotaStatusText.text = $"Quota {quotaNumber}";
+        quotaStatusText.text = $"Quota {quotaNumber}: ({Mathf.CeilToInt(timer)}s)";
     }
 
 
