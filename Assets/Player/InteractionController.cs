@@ -13,6 +13,11 @@ public class InteractionController : MonoBehaviour
     public Transform handSocket;
     private HeldItem heldItem;
 
+    public HeldItem GetHeldItem()
+    {
+        return heldItem;
+    }
+
     public float throwForce = 8f;
 
     private void Awake()
@@ -114,6 +119,16 @@ public class InteractionController : MonoBehaviour
                 ForceMode.Impulse
             );
         }
+
+        Destroy(heldItem.gameObject);
+
+        heldItem = null;
+    }
+
+    public void RemoveHeldItem()
+    {
+        if (heldItem == null)
+            return;
 
         Destroy(heldItem.gameObject);
 

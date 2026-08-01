@@ -45,9 +45,7 @@ public class ComputerTask : Task
         requiredAmount = 1;
 
 
-        Debug.Log(
-            $"Computer infected: {infectedComputer.name}"
-        );
+        //Debug.Log($"Computer infected: {infectedComputer.name}");
     }
 
 

@@ -28,6 +28,10 @@ public class TaskManager : MonoBehaviour
 
     public void RegisterTask(Task task)
     {
+        if (task is UrgentTask)
+            return;
+
+
         if (!allTasks.Contains(task))
         {
             allTasks.Add(task);

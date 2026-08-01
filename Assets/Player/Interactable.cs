@@ -9,7 +9,7 @@ public abstract class Interactable : MonoBehaviour
     protected virtual void Awake()
     {
         outline = GetComponent<Outline>();
-        Debug.Log(outline);
+        //Debug.Log(outline);
 
 
         if (outline != null)
@@ -18,7 +18,7 @@ public abstract class Interactable : MonoBehaviour
 
     public void Highlight(bool value)
     {
-        Debug.Log("Highlight value: " + value);
+        //Debug.Log("Highlight value: " + value);
         if (outline != null)
             outline.enabled = value;
     }

@@ -63,7 +63,7 @@ public class SpillTask : Task
         }
 
 
-        Debug.Log($"Activated {amount} spills");
+        //Debug.Log($"Activated {amount} spills");
     }
 
     public override void ResetTask()
