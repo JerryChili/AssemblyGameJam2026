@@ -39,6 +39,14 @@ public class CodeMinigame : MonoBehaviour
         }
     }
 
+    public void ResetMinigame()
+    {
+        currentCharacter = 0;
+        displayedCode = "";
+
+        codeText.text = "";
+    }
+
 
     private void RevealCharacters()
     {

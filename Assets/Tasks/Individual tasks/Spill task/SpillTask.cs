@@ -56,6 +56,7 @@ public class SpillTask : Task
 
             spill.Activate();
 
+            spill.OnCleaned -= SpillCleaned;
             spill.OnCleaned += SpillCleaned;
 
             activeSpills.Add(spill);
@@ -65,6 +66,18 @@ public class SpillTask : Task
         Debug.Log($"Activated {amount} spills");
     }
 
+    public override void ResetTask()
+    {
+        base.ResetTask();
+
+        foreach (Spill spill in activeSpills)
+        {
+            spill.gameObject.SetActive(false);
+            spill.OnCleaned -= SpillCleaned;
+        }
+
+        activeSpills.Clear();
+    }
 
     private void SpillCleaned()
     {

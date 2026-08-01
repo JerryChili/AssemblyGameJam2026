@@ -20,6 +20,20 @@ public class TaskUIManager : MonoBehaviour
 
     public void AddTask(Task task)
     {
+        // Task already has a UI entry
+        if (entries.ContainsKey(task))
+        {
+            TaskUIEntry existingEntry = entries[task];
+
+            task.OnTaskUpdated -= existingEntry.UpdateTask;
+            task.OnTaskUpdated += existingEntry.UpdateTask;
+
+            existingEntry.UpdateTask(task);
+
+            return;
+        }
+
+
         GameObject obj = Instantiate(
             taskEntryPrefab,
             taskListParent
@@ -42,9 +56,12 @@ public class TaskUIManager : MonoBehaviour
 
     public void RemoveTask(Task task)
     {
-        if (entries.ContainsKey(task))
+        if (entries.TryGetValue(task, out TaskUIEntry entry))
         {
-            Destroy(entries[task].gameObject);
+            task.OnTaskUpdated -= entry.UpdateTask;
+
+            Destroy(entry.gameObject);
+
             entries.Remove(task);
         }
     }

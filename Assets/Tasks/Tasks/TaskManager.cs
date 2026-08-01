@@ -24,8 +24,6 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        // TESTING PURPOSES
-        ActivateTask(allTasks[0]);
     }
 
     public void RegisterTask(Task task)
@@ -59,6 +57,12 @@ public class TaskManager : MonoBehaviour
         activeTasks.Remove(task);
     }
 
+    public void PrepareTask(Task task)
+    {
+        task.ResetTask();
+        ActivateTask(task);
+    }
+
     private void FindAllTasks()
 {
     Task[] tasks = FindObjectsByType<Task>();
@@ -71,9 +75,7 @@ public class TaskManager : MonoBehaviour
 
     public void TaskCompleted(Task task)
     {
-        Debug.Log(
-            $"Task completed: {task.taskName}"
-        );
+        Debug.Log($"Task completed: {task.taskName}");
 
         activeTasks.Remove(task);
     }

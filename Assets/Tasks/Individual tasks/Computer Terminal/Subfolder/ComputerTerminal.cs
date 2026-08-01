@@ -17,12 +17,20 @@ public class ComputerTerminal : Interactable
             return;
 
 
+        minigame.ResetMinigame();
+
         codeUI.SetActive(true);
 
-
+        minigame.OnCompleted -= FixBug;
         minigame.OnCompleted += FixBug;
     }
 
+    public void ResetTerminal()
+    {
+        isInfected = false;
+
+        minigame.OnCompleted -= FixBug;
+    }
 
     public void FixBug()
     {

@@ -8,6 +8,7 @@ public class InteractionController : MonoBehaviour
     private Camera playerCamera;
 
     private Interactable currentInteractable;
+    private Interactable currentHover;
 
     public Transform handSocket;
     private HeldItem heldItem;
@@ -46,25 +47,34 @@ public class InteractionController : MonoBehaviour
 
     void CheckForInteractable()
     {
-        currentInteractable = null;
-
         Ray ray = new Ray(
             playerCamera.transform.position,
             playerCamera.transform.forward
         );
 
+        Interactable newInteractable = null;
+
         if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, interactableLayer))
         {
-            //Debug.Log("Hit: " + hit.collider.name);
-            currentInteractable = hit.collider.GetComponent<Interactable>();
-
-            if (currentInteractable != null)
-            {
-                //Debug.Log(currentInteractable.GetPrompt());
-            }
+            newInteractable = hit.collider.GetComponentInParent<Interactable>();
         }
+
+
+        if (newInteractable != currentHover)
+        {
+            if (currentHover != null)
+                currentHover.Highlight(false);
+
+            currentHover = newInteractable;
+
+            if (currentHover != null)
+                currentHover.Highlight(true);
+        }
+
+
+        currentInteractable = newInteractable;
     }
-    
+
     public bool HasItem()
     {
         return heldItem != null;

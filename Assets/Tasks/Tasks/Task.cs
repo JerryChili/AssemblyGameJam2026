@@ -31,24 +31,22 @@ public abstract class Task : MonoBehaviour
         IsActive = true;
         currentProgress = 0;
 
-        //gameObject.SetActive(true);
-
         Debug.Log($"{taskName} activated");
     }
 
+
     public virtual void Deactivate()
     {
-        //IsActive = false;
-
-        gameObject.SetActive(false);
+        IsActive = false;
     }
+
 
     public virtual void ResetTask()
     {
         currentProgress = 0;
         IsActive = false;
 
-        gameObject.SetActive(false);
+        OnTaskUpdated?.Invoke(this);
     }
 
     protected void AddProgress(int amount = 1)

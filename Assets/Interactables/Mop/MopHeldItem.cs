@@ -13,13 +13,21 @@ public class MopHeldItem : HeldItem
 
     public override void Use()
     {
-        //Debug.Log("Sweeping floor");
+        Ray ray = playerCamera.ScreenPointToRay(
+            new Vector3(Screen.width / 2f, Screen.height / 2f)
+        );
 
-        Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
 
-        if (Physics.Raycast(ray, out RaycastHit hit, sweepRange))
+        if (Physics.SphereCast(
+            ray,
+            0.3f,
+            out RaycastHit hit,
+            sweepRange
+        ))
         {
-            Spill spill = hit.collider.GetComponent<Spill>();
+            Debug.Log("Mop hit: " + hit.collider.name);
+
+            Spill spill = hit.collider.GetComponentInParent<Spill>();
 
             if (spill != null)
             {

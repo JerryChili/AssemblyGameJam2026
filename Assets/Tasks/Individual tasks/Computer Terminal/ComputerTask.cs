@@ -15,11 +15,21 @@ public class ComputerTask : Task
         ActivateBug();
     }
 
+    public override void ResetTask()
+    {
+        base.ResetTask();
+
+        if (infectedComputer != null)
+        {
+            infectedComputer.isInfected = false;
+            infectedComputer.OnBugFixed -= BugFixed;
+            infectedComputer = null;
+        }
+    }
+
 
     private void ActivateBug()
     {
-        // Pick random computer
-
         infectedComputer = computers[
             Random.Range(0, computers.Count)
         ];
@@ -27,7 +37,10 @@ public class ComputerTask : Task
 
         infectedComputer.isInfected = true;
 
+
+        infectedComputer.OnBugFixed -= BugFixed;
         infectedComputer.OnBugFixed += BugFixed;
+
 
         requiredAmount = 1;
 
