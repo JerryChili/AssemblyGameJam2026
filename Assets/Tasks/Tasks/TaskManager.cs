@@ -68,6 +68,13 @@ public class TaskManager : MonoBehaviour
         ActivateTask(task);
     }
 
+    public void RefreshTasks()
+    {
+        allTasks.Clear();
+
+        FindAllTasks();
+    }
+
     private void FindAllTasks()
     {
         Task[] tasks = FindObjectsByType<Task>();

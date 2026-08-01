@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuotaManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class QuotaManager : MonoBehaviour
     public AudioClip newQuota;
     public AudioClip quotaSuccess;
     public AudioClip quotaFail;
+    private bool quotaRunning;
 
     [Header("Difficulty")]
     public int quotaNumber = 1;
@@ -78,9 +80,32 @@ public class QuotaManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            TaskManager.Instance.RefreshTasks();
+            StartQuota();
+        }
+    }
 
     public void StartQuota()
     {
+        if (quotaRunning)
+            return;
+
         currentQuota = new Quota();
         AudioManager.Instance.PlaySFX(newQuota);
 
@@ -115,7 +140,10 @@ public class QuotaManager : MonoBehaviour
 
 
             // Reset and activate fresh task
-            TaskManager.Instance.PrepareTask(chosen);
+            if (TaskManager.Instance != null)
+            {
+                TaskManager.Instance.PrepareTask(chosen);
+            }
         }
 
 
@@ -150,6 +178,7 @@ public class QuotaManager : MonoBehaviour
     private IEnumerator NextQuotaDelay()
     {
         waitingForNextQuota = true;
+        quotaRunning = false;
 
         float countdown = quotaBreakTime;
 
