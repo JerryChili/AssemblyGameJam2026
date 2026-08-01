@@ -801,9 +801,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programming: Jeri Juntunen\nArt: Kaspian Sepp\xE4nen\n\n\n\nHumanoid model:
+  m_text: "Programming: Jeri Juntunen\nArt: Kaspian Sepp\xE4nen\n\n\nHumanoid model:
     https://sketchfab.com/3d-models/male-lowpoly-base-mesh-44d9a06186fa4068a50ab421bfcc38b2\n\nAudio
-    credits:\r\nx- Item equip/dequip sound https://freesound.org/people/Mellau/sounds/506054/\r\nx-
+    credits:\nx- Button press https://freesound.org/people/kickhat/sounds/264447/\r\nx-
+    Item equip/dequip sound https://freesound.org/people/Mellau/sounds/506054/\r\nx-
     Boss urgent task sound https://freesound.org/people/CZghost/sounds/613685/\r\nx-
     Fail quota https://freesound.org/people/V4cuum/sounds/348635/\r\nx- Succeed quota
     https://freesound.org/people/V4cuum/sounds/348644/\r\nx- New quota https://freesound.org/people/marlonnnnnn/sounds/351880/\r\nx-
@@ -2423,7 +2424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1077912999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4755,6 +4756,7 @@ MonoBehaviour:
   desk: {fileID: 8811427727845097649}
   reader: {fileID: 6348606210948555442}
   resetButton: {fileID: 6816842339549778222}
+  button: {fileID: 8300000, guid: c5cd6650fc1d5ea4fac78f7e57192924, type: 3}
 --- !u!1001 &1818000546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29239,6 +29241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyCardReader
   interactionPrompt: Press E to interact
   serverDoor: {fileID: 7623545440030677812}
+  button: {fileID: 8300000, guid: cfebbe959bfe5494aaf4d1e2f3750010, type: 3}
 --- !u!114 &6348606210948555443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31141,6 +31144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ServerResetButton
   interactionPrompt: Press E to interact
+  press: {fileID: 8300000, guid: cfebbe959bfe5494aaf4d1e2f3750010, type: 3}
 --- !u!114 &6816842339549778223
 MonoBehaviour:
   m_ObjectHideFlags: 0

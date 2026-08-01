@@ -3,6 +3,7 @@ using UnityEngine;
 public class KeyCardReader : Interactable
 {
     public GameObject serverDoor;
+    public AudioClip button;
 
     private bool unlocked;
 
@@ -47,7 +48,7 @@ public class KeyCardReader : Interactable
 
 
         serverDoor.SetActive(false);
-
+        AudioManager.Instance.PlaySFX(button);
 
         //Debug.Log("Server room unlocked.");
     }

@@ -7,6 +7,8 @@ public class ServerTask : Task
     public KeyCardReader reader;
     public ServerResetButton resetButton;
 
+    public AudioClip button;
+
 
     private bool serverReset;
 
@@ -74,6 +76,11 @@ public class ServerTask : Task
     private void ServerReset()
     {
         Debug.Log("Beebbooppb");
+
+        if (!serverReset)
+        {
+            AudioManager.Instance.PlaySFX(button);
+        }
         serverReset = true;
 
 

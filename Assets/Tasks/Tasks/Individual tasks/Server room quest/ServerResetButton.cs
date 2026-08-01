@@ -4,6 +4,7 @@ using UnityEngine;
 public class ServerResetButton : Interactable
 {
     public Action OnResetPressed;
+    public AudioClip press;
 
 
     public override void Interact()
@@ -19,6 +20,7 @@ public class ServerResetButton : Interactable
             //Debug.Log("Reset listeners exist!");
         }
 
+        AudioManager.Instance.PlaySFX(press);
         OnResetPressed?.Invoke();
     }
 }
